@@ -1,73 +1,96 @@
+<header></header>
 <div ng-controller="HomeCtrl as user">
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-md-3">
 
             </div>
-            <div class="col-7">
-<form name="myForm" novalidate>
-                <div class="row">
-                    <div class="col-3">
-                        <md-select  ng-model="user.title" placeholder="Title" class="md-no-underline" required md-no-asterisk="false" ng-required="true">
-                            <md-option value="Mr">Mr.</md-option>
-                            <md-option value="Ms">Ms.</md-option>
-                            <md-option value="Mrs">Mrs</md-option>
+            <div class="col-md-6 margin-lr">
+                <form>
+                    <ng-form name="myForm">
+                        <div class="row input_fields">
+                            <div class="col-3">
+                                <md-select ng-model="user.title" placeholder="Title" class="md-no-underline" required md-no-asterisk="false" ng-required="true">
+                                    <md-option value="Mr">Mr.</md-option>
+                                    <md-option value="Ms">Ms.</md-option>
+                                    <md-option value="Mrs">Mrs</md-option>
 
-                        </md-select>
-                    </div>
-                    <div class="col-9">
-                        <md-input-container>
-                            <label>Name</label>
-                            <input ng-model="user.name" ng-maxlength="30" ng-minlength="3" required type="text" ng-required="true">
-                        </md-input-container>
-                    </div>
+                                </md-select>
 
-                </div>
-                <div class="row">
-                    <md-datepicker ng-model="user.dob" md-placeholder="Date of birth" md-min-date="user.minDate" md-max-date="user.maxDate"></md-datepicker>
-                </div>
-                <div class="row">
-                    <md-radio-group ng-model="user.marital_status" style="width:100%;">
-                        <div class="row">
-                            <md-radio-button value="Married" class="col">Married</md-radio-button>
-                            <md-radio-button value="Single" class="col"> Single </md-radio-button>
-                            <md-radio-button value="Divorced" class="col">Divorced</md-radio-button>
-                            <md-radio-button value="Widow" class="col">Widow</md-radio-button>
+                            </div>
+                            <div class="col-9">
+
+
+                                <input class="input_tags" ng-model="user.name" name="name" minlength="3" maxlength="30" ng-minlength="3" type="text" ng-required="true" placeholder="&nbsp; Enter full name">
+                             <div>  <small class="error" ng-show="myForm.name.$touched && myForm.name.$invalid">Please enter a valid name with minimum 3 alphabets</small></div> 
+                            </div>
+
                         </div>
-                    </md-radio-group>
-                </div>
+                        <div class="row input_fields">
+                            <label class="m-t-1">Select Date of birth</label>
+                            <md-datepicker ng-model="user.dob" md-placeholder="Date of birth" md-min-date="user.minDate" md-max-date="user.maxDate" ng-required="true"></md-datepicker>
+                        </div>
+                        <div class="row input_fields"><label>Please share Marital status</label>
+                            <md-radio-group ng-model="user.marital_status" ng-required="true" style="width:100%;">
+                                <div class="row">
+                                    <div class="col-12">
+                                    <md-radio-button value="Married" class="col">Married</md-radio-button>
+                                    <md-radio-button value="Single" class="col"> Single </md-radio-button>
+                                    <md-radio-button value="Divorced" class="col">Divorced</md-radio-button>
+                                    <md-radio-button value="Widow" class="col">Widow</md-radio-button></div>
+                                </div>
+                            </md-radio-group>
+                        </div>
 
-                <div class="row">
+                        <div class="row input_fields">
 
-                    <md-input-container>
-                        <label>Email</label>
-                        <input ng-model="user.email" type="email">
-                    </md-input-container>
-                </div>
 
-                <div class="row">
-                    <md-input-container>
-                        <label>Aadhar</label>
-                        <input ng-model="user.aadhar" type="number">
-                    </md-input-container>
+                            <input class="input_tags" ng-model="user.email" type="email" ng-pattern="/^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/" ng-model="email" placeholder="&nbsp; Enter Email Address" ng-required="true" name="email">
+                            <small class="error" ng-show="myForm.email.$touched && myForm.email.$invalid">Please enter a valid email in [abscd@gmail.com] format</small>
 
-                </div>
-                <div class="row">
-                    <md-input-container>
-                        <label>pan</label>
-                        <input ng-model="user.pan_number" type="number">
-                    </md-input-container>
+                        </div>
 
-                </div>
+                        <div class="row input_fields">
 
-                <md-button class="md-raised md-primary" ng-click="submit(user)">Submit</md-button>
-</form>
+                            <input class="input_tags" ng-model="user.aadhar" type="number" ng-required="true" ng-pattern="/[0-9]{12}/" ng-model="aadhar" placeholder="&nbsp; Aadhar number" name="aadhar">
+
+                            <small class="error" ng-show="myForm.aadhar.$touched && myForm.aadhar.$invalid">Please enter a valid aadhar number</small>
+
+                        </div>
+                        <div class="row input_fields">
+
+                            <input class="input_tags" ng-model="user.pan_number" type="text" placeholder="&nbsp; Enter Pan Number">
+
+                        </div>
+<div class="text-center"><md-button class="md-raised md-primary" id="submit" type="submit" ng-disabled="myForm.$invalid" ng-click="submit(user)" >Submit</md-button></div>
+                        
+                    </ng-form>
+                </form>
             </div>
-            <div class="col">
-
+            <div class="col-md-3">
+               
             </div>
         </div>
 
     </div>
-
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
