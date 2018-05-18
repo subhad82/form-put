@@ -34,11 +34,5 @@ myApp.controller('HomeCtrl', ['$scope', '$http', '$state', '$timeout', '$q', '$l
 
     }
 
-    //    
-    // $scope.phoneNumbr = /[789][0-9]{9}/; 
-    //            $scope.email1 = /[^@]+@[^@]+\.[a-zA-Z]{2,6}/; 
-    //            $scope.aadhar1 = /[0-9]{12}/; 
-    //            $scope.uname1=/[A-Z][a-zA-Z]{6}[0-9]{5}/;
-    //            $scope.pan1=/[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}/;
-
+ 
 }]);
