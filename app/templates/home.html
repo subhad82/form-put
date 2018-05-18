@@ -1,0 +1,73 @@
+<div ng-controller="HomeCtrl as user">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col-7">
+<form name="myForm" novalidate>
+                <div class="row">
+                    <div class="col-3">
+                        <md-select  ng-model="user.title" placeholder="Title" class="md-no-underline" required md-no-asterisk="false" ng-required="true">
+                            <md-option value="Mr">Mr.</md-option>
+                            <md-option value="Ms">Ms.</md-option>
+                            <md-option value="Mrs">Mrs</md-option>
+
+                        </md-select>
+                    </div>
+                    <div class="col-9">
+                        <md-input-container>
+                            <label>Name</label>
+                            <input ng-model="user.name" ng-maxlength="30" ng-minlength="3" required type="text" ng-required="true">
+                        </md-input-container>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <md-datepicker ng-model="user.dob" md-placeholder="Date of birth" md-min-date="user.minDate" md-max-date="user.maxDate"></md-datepicker>
+                </div>
+                <div class="row">
+                    <md-radio-group ng-model="user.marital_status" style="width:100%;">
+                        <div class="row">
+                            <md-radio-button value="Married" class="col">Married</md-radio-button>
+                            <md-radio-button value="Single" class="col"> Single </md-radio-button>
+                            <md-radio-button value="Divorced" class="col">Divorced</md-radio-button>
+                            <md-radio-button value="Widow" class="col">Widow</md-radio-button>
+                        </div>
+                    </md-radio-group>
+                </div>
+
+                <div class="row">
+
+                    <md-input-container>
+                        <label>Email</label>
+                        <input ng-model="user.email" type="email">
+                    </md-input-container>
+                </div>
+
+                <div class="row">
+                    <md-input-container>
+                        <label>Aadhar</label>
+                        <input ng-model="user.aadhar" type="number">
+                    </md-input-container>
+
+                </div>
+                <div class="row">
+                    <md-input-container>
+                        <label>pan</label>
+                        <input ng-model="user.pan_number" type="number">
+                    </md-input-container>
+
+                </div>
+
+                <md-button class="md-raised md-primary" ng-click="submit(user)">Submit</md-button>
+</form>
+            </div>
+            <div class="col">
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
